@@ -13,9 +13,20 @@
         android:theme="@style/Theme.DorysParadise"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:name=".ui.activity.SugerenciasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.LegislacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.PerfilConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.PerfilesActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
