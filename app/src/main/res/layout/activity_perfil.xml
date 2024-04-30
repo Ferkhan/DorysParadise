@@ -7,43 +7,75 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.PerfilActivity">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dory's Paradise"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="111dp" />
+    <ImageView
+        android:id="@+id/img_usuario"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/nombre"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="foto" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido de nuevo"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="188dp" />
+        android:text="Nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_usuario"
+        app:layout_constraintBottom_toTopOf="@+id/txt_nombre" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txt_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seleccione su perfil"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="262dp" />
+        android:text="[INSETAR NOMBRE]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre"
+        app:layout_constraintBottom_toTopOf="@+id/correo" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
+    <TextView
+        android:id="@+id/correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="327dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="Correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombre"
+        app:layout_constraintBottom_toTopOf="@+id/edit_correo"/>
 
-    <ImageButton
-        android:id="@+id/imageButton3"
+    <TextView
+        android:id="@+id/edit_correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="528dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="[INSERTAR CORREO]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correo"
+        app:layout_constraintBottom_toTopOf="@id/btn_editar" />
+
+    <Button
+        android:id="@+id/btn_editar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_correo"
+        app:layout_constraintBottom_toTopOf="@id/btn_legislacion" />
+
+    <Button
+        android:id="@+id/btn_legislacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Términos y condiciones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,105 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.PerfilConfigActivity">
 
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        app:layout_constraintBottom_toTopOf="@+id/edit_nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[INSETAR NOMBRE]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/correo"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+    <TextView
+        android:id="@+id/correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo"
+        app:layout_constraintBottom_toTopOf="@+id/edit_correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nombre" />
+
+    <EditText
+        android:id="@+id/edit_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[INSERTAR CORREO]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correo"
+        app:layout_constraintBottom_toTopOf="@id/clave_antigua" />
+
+    <TextView
+        android:id="@+id/clave_antigua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edit_clave_antigua"
+        app:layout_constraintTop_toBottomOf="@+id/edit_correo" />
+
+    <EditText
+        android:id="@+id/edit_clave_antigua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="[INSERTAR NUEVA CONTRASEÑA]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/clave_nueva"
+        app:layout_constraintTop_toBottomOf="@+id/clave_antigua" />
+
+    <TextView
+        android:id="@+id/clave_nueva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_clave_antigua"
+        app:layout_constraintBottom_toTopOf="@+id/edit_clave_nueva" />
+
+    <EditText
+        android:id="@+id/edit_clave_nueva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="[CONFIRMAR CONTRASEÑA]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clave_nueva"
+        app:layout_constraintBottom_toTopOf="@id/btn_guardar" />
+
+    <Button
+        android:id="@+id/btn_guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_cancelar"
+        app:layout_constraintTop_toBottomOf="@+id/edit_clave_nueva" />
+
+    <Button
+        android:id="@+id/btn_cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_guardar" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
