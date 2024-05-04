@@ -6,7 +6,8 @@ $sql = "SELECT s.sugerencia_id AS id, u.nombre AS usuario, si.situacion_id AS si
         FROM SUGERENCIA s 
         JOIN USUARIO u ON s.usuario_id = u.usuario_id 
         JOIN SITUACION si ON s.situacion_id = si.situacion_id 
-        WHERE s.estado_registro = 1";
+        WHERE s.estado_registro = 1
+        ORDER BY s.fecha_publicacion ASC";
 
 $resultado = $conn->query($sql);
 
