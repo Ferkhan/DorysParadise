@@ -3,11 +3,11 @@ package com.dorysparadise.bl.entities
 import java.time.LocalDateTime
 
 data class Sugerencia(
-    private var id: Int,
-    private var usuario: String,
-    private var situacion: String,
-    private var descripcion: String,
-    private var fechaPubli: LocalDateTime
+    private var id: Int? = null,
+    private var usuario: String? = null,
+    private var situacion: String? = null,
+    private var descripcion: String? = null,
+    private var fechaPubli: LocalDateTime? = null
 ) {
     fun setId(id: Int) {this.id = id}
     fun getId() = this.id

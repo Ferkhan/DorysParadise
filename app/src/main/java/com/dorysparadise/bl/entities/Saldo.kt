@@ -1,8 +1,8 @@
 package com.dorysparadise.bl.entities
 
 data class Saldo(
-    private var id: Int,
-    private var cantidad: Int
+    private var id: Int? = null,
+    private var cantidad: Int? = null
 ) {
     fun setId(id: Int) {this.id = id}
     fun getId() = this.id

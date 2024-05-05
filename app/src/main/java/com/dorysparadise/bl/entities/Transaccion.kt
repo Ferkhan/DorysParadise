@@ -3,12 +3,12 @@ package com.dorysparadise.bl.entities
 import java.time.LocalDateTime
 
 data class Transaccion(
-    private var id: Int,
-    private var usuario: String,
-    private var operacion: String,
-    private var precio: Int,
-    private var motivo: String,
-    private var fechaOperacion: LocalDateTime
+    private var id: Int? = null,
+    private var usuario: String? = null,
+    private var operacion: String? = null,
+    private var precio: Int? = null,
+    private var motivo: String? = null,
+    private var fechaOperacion: LocalDateTime? = null
 ) {
     fun setId(id: Int) {this.id = id}
     fun getId() = this.id

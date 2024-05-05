@@ -1,14 +1,14 @@
 package com.dorysparadise.bl.entities
 
 data class Producto (
-    private var id: Int,
-    private var usuario: String,
-    private var disponibilidad: String,
-    private var clasificacion: String,
-    private var nombre: String,
-    private var descripcion: String,
-    private var precio: Int,
-    private var imgRuta: String
+    private var id: Int? = null,
+    private var usuario: String? = null,
+    private var disponibilidad: String? = null,
+    private var clasificacion: String? = null,
+    private var nombre: String? = null,
+    private var descripcion: String? = null,
+    private var precio: Int? = null,
+    private var imgRuta: String? = null
 ) {
     fun setId(id: Int) {this.id = id}
     fun getId() = this.id
