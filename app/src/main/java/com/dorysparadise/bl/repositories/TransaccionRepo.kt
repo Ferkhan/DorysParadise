@@ -14,7 +14,7 @@ class TransaccionRepo(contexto: Context) : GestorRepo(contexto) {
         var transaccion: Transaccion
         val listaTransacciones = mutableListOf<Transaccion>()
         val jsonArrayRequest = JsonArrayRequest(
-            Request.Method.GET, "$url/transaccion_leer_todos.php", null,
+            Request.Method.GET, "$url/transaccion_leer_todo.php", null,
             { response ->
                 try {
                     var jsonObject: JSONObject

@@ -13,11 +13,10 @@ $sql = "SELECT u.usuario_id AS id, r.tipo AS rol, u.nombre, u.correo, u.clave, u
 $resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
-    while ($fila = $resultado->fetch_assoc()) {
-        $usuario[] = array_map('utf8_encode', $fila);
-    }
+    $fila = $resultado->fetch_assoc();
+    $usuario = array_map('utf8_encode', $fila);
 } else {
-    echo "Sin información ingresada aún";
+    echo "Información aún no ingresada";
 }
 
 echo json_encode($usuario);

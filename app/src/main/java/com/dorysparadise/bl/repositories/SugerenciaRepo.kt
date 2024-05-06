@@ -14,7 +14,7 @@ class SugerenciaRepo(contexto: Context) : GestorRepo(contexto) {
         var sugerencia: Sugerencia
         val listaSugerencias = mutableListOf<Sugerencia>()
         val jsonArrayRequest = JsonArrayRequest(
-            Request.Method.GET, "$url/sugerencia_leer_todos.php", null,
+            Request.Method.GET, "$url/sugerencia_leer_todo.php", null,
             { response ->
                 try {
                     var jsonObject: JSONObject

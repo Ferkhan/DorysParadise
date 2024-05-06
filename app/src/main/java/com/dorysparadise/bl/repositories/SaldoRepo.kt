@@ -8,7 +8,7 @@ import com.dorysparadise.bl.entities.Saldo
 import org.json.JSONException
 
 class SaldoRepo(contexto: Context) : GestorRepo(contexto) {
-    fun obtenerPorId(id: String): Saldo {
+    fun obtenerPorId(id: Int): Saldo {
         val saldo = Saldo()
 
         val jsonObjectRequest = JsonObjectRequest(
