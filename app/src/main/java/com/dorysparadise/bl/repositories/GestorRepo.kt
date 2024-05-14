@@ -10,5 +10,6 @@ abstract class GestorRepo (protected val contexto: Context) {
     protected var requestQueue = Volley.newRequestQueue(contexto)
     protected val formato = DateTimeFormatter.ISO_LOCAL_DATE_TIME
     protected val msjErrorConn: String = "Error de conexión"
+    protected var respuesta = false
 
 }
