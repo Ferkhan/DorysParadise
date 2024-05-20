@@ -14,7 +14,9 @@ class InicioSesionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityInicioSesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val foo = intent
         val nombre = intent.getIntExtra("id", 0)
 
@@ -24,7 +26,7 @@ class InicioSesionActivity : AppCompatActivity() {
     }
 
     private fun initRecursos() {
-        binding = ActivityInicioSesionBinding.inflate(layoutInflater)
+
         retrofitService = RetrofitAdapter.getRetrofit()
     }
 
@@ -38,6 +40,8 @@ class InicioSesionActivity : AppCompatActivity() {
 
     private fun irBarraNavegacion() {
         val miIntent = Intent(this, BarraNavActivity::class.java)
-        val usuario = intent.getSerializableExtra("id", Usuario)
+//        val usuario = intent.getSerializableExtra("id", Usuario)
+        startActivity(miIntent)
+
     }
 }

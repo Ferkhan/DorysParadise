@@ -15,6 +15,7 @@ class PerfilesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityPerfilesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initRecursos()
@@ -33,7 +34,6 @@ class PerfilesActivity : AppCompatActivity() {
     }
 
     private fun initRecursos() {
-        binding = ActivityPerfilesBinding.inflate(layoutInflater)
         retrofitService = RetrofitAdapter.getRetrofit()
     }
 
@@ -45,7 +45,7 @@ class PerfilesActivity : AppCompatActivity() {
     private fun irInicioSesion(id: Int) {
         val intent = Intent(this, InicioSesionActivity::class.java)
         intent.putExtra("id", id)
-        intent.putExtra("id", usuario)
+//        intent.putExtra("id", usuario)
         startActivity(intent)
     }
 

@@ -7,15 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.BarraNavActivity">
 
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#388E3C"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frame_layout"
+        >
+
+
+        <ImageButton
+            android:id="@+id/img_perfil"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txt_nombre_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DORY'S PARADISE" />
+
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/encabezado"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav" >
 
     </FrameLayout>
@@ -24,10 +51,12 @@
         android:id="@+id/bottom_nav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartdOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/frame_layout"
+        app:labelVisibilityMode="selected"
         app:menu="@menu/menu_bottom_nav" >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
