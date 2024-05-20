@@ -10,23 +10,23 @@ import retrofit2.http.Query
 interface RetrofitService {
 
     @GET("producto_leer_todo.php")
-    suspend fun productoLista(): List<Producto>
+    suspend fun getProductoLista(): List<Producto>
 
     @GET("sugerencia_leer_todo.php")
-    suspend fun sugerenciaLista(): List<Saldo>
+    suspend fun getSugerenciaLista(): List<Saldo>
 
     @GET("usuario_leer_id.php")
-    suspend fun usuarioPorId(
+    suspend fun getUsuarioPorId(
         @Query("id") id: Int
     ): Usuario
 
     @GET("saldo_leer_id.php")
-    suspend fun saldoPorId(
+    suspend fun getSaldoPorId(
         @Query("id") id: Int
     ): Saldo
 
     @GET("transaccion_leer_id.php")
-    suspend fun transaccionPorId(
+    suspend fun getTransaccionPorId(
         @Query("id") id: Int
     ): Transaccion
 
