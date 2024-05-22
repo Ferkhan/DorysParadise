@@ -5,6 +5,7 @@ import com.dorysparadise.bl.models.Saldo
 import com.dorysparadise.bl.models.Transaccion
 import com.dorysparadise.bl.models.Usuario
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface RetrofitService {
@@ -29,5 +30,6 @@ interface RetrofitService {
     suspend fun getTransaccionPorId(
         @Query("id") id: Int
     ): Transaccion
+
 
 }

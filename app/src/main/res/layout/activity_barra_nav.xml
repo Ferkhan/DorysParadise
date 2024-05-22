@@ -35,7 +35,7 @@
 
     </LinearLayout>
 
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frame_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@id/encabezado"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav" >
 
-    </FrameLayout>
+    </androidx.fragment.app.FragmentContainerView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

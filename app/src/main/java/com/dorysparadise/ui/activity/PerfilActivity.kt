@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dorysparadise.R
 import com.dorysparadise.databinding.ActivityPerfilBinding
+import com.squareup.picasso.Picasso
 
 class PerfilActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPerfilBinding
@@ -17,6 +18,11 @@ class PerfilActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initListeners()
+        setValores()
+    }
+
+    private fun setValores() {
+
     }
 
     private fun initListeners() {

@@ -3,15 +3,16 @@ package com.dorysparadise.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.dorysparadise.bl.models.Usuario
+import com.dorysparadise.R
 import com.dorysparadise.da.io.RetrofitAdapter
 import com.dorysparadise.da.io.RetrofitService
 import com.dorysparadise.databinding.ActivityPerfilesBinding
+import com.dorysparadise.utilities.PicassoUtil
+import com.squareup.picasso.Picasso
 
 class PerfilesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPerfilesBinding
     private lateinit var retrofitService: RetrofitService
-    private lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,7 @@ class PerfilesActivity : AppCompatActivity() {
 
         initRecursos()
         initListeners()
+        setValores()
 
 //        lifecycleScope.launch(Dispatchers.IO) {
 //            val usuario1 = retrofitService.usuarioPorId(1)
@@ -31,6 +33,17 @@ class PerfilesActivity : AppCompatActivity() {
 //            }
 //        }
 
+    }
+
+    private fun setValores() {
+        Picasso.get()
+            .load("https://images.dog.ceo/breeds/hound-afghan/n02088094_1023.jpg")
+            .into(binding.imgbtnSol)
+        PicassoUtil().getImg("perfil/perfil.jpg")
+            .placeholder(R.drawable.usuario)
+            .into(binding.imgbtnDory)
+//        PicassoUtil().getImg("perfil/perfil.jpg")
+//            .into(binding.imgbtnSol)
     }
 
     private fun initRecursos() {
