@@ -37,30 +37,22 @@ class SugerenciasFragment : Fragment() {
 
     private fun initRecyclerView() {
         lifecycleScope.launch (Dispatchers.IO){
-            debug("ingreso a lifecycle")
             val respuesta = RetrofitAdapter.getRetrofit().getSugerenciaLista()
-            debug("retrofit")
             val adaptador: SugerenciasAdapter
-            debug("adaptador")
             val listaSugerencias: List<Sugerencia>
-            debug("fin de declaraciones")
 
             withContext(Dispatchers.Main) {
                 if (respuesta.isSuccessful) {
-                    debug("respuesta succesful")
                     listaSugerencias = respuesta.body()!!
                     if (listaSugerencias.isNotEmpty()) {
-                        debug("lista no vacia")
                         adaptador = SugerenciasAdapter(listaSugerencias)
                         binding.rvSugerencias.layoutManager = LinearLayoutManager(context)
                         binding.txtAviso.text = null
                         binding.rvSugerencias.adapter = adaptador
                     } else {
-                        debug("lista vacia")
                         cambiarAviso("No existen sugerencias")
                     }
                 } else {
-                    debug("error de conexion")
                     cambiarAviso("Error de conexión. Vuelva a intentarlo")
                 }
             }
@@ -70,10 +62,5 @@ class SugerenciasFragment : Fragment() {
     private fun cambiarAviso(mensaje: String) {
         binding.txtAviso.text = mensaje
     }
-
-    private fun debug(mensaje: String) {
-        Log.i("MyDorisError", mensaje)
-    }
-
 
 }

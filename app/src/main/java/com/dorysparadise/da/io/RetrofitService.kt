@@ -1,5 +1,6 @@
 package com.dorysparadise.da.io
 
+import com.dorysparadise.bl.models.Politica
 import com.dorysparadise.bl.models.Producto
 import com.dorysparadise.bl.models.Saldo
 import com.dorysparadise.bl.models.Sugerencia
@@ -17,6 +18,9 @@ interface RetrofitService {
 
     @GET("sugerencia_leer_todo.php")
     suspend fun getSugerenciaLista(): Response<List<Sugerencia>>
+
+    @GET("politica_leer_todo.php")
+    suspend fun getPoliticaLista(): Response<List<Politica>>
 
     @GET("usuario_leer_id.php")
     suspend fun getUsuarioPorId(
