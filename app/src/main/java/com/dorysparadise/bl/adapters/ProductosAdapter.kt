@@ -18,7 +18,6 @@ class ProductosAdapter(val listaProductos: List<Producto>) : RecyclerView.Adapte
 
 
     override fun onBindViewHolder(holder: ProductosViewHolder, position: Int) {
-        val producto = listaProductos[position]
-        holder.bind(producto)
+        holder.bind(listaProductos[position])
     }
 }

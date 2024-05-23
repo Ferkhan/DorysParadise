@@ -2,7 +2,7 @@
 
 include("../conexion.php");
 
-$sql = "SELECT s.sugerencia_id AS id, u.nombre AS usuario, si.situacion_id AS situacion, s.descripcion, s.fecha_publicacion
+$sql = "SELECT s.sugerencia_id AS id, u.nombre AS usuario, si.tipo AS situacion, s.descripcion, s.fecha_publicacion
         FROM SUGERENCIA s 
         JOIN USUARIO u ON s.usuario_id = u.usuario_id 
         JOIN SITUACION si ON s.situacion_id = si.situacion_id 

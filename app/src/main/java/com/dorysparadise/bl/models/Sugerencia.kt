@@ -9,5 +9,6 @@ data class Sugerencia(
     val situacion: String,
     val descripcion: String,
     @SerializedName("fecha_publicacion")
-    val fechaPubli: LocalDateTime
+    val fechaPubli: String
+//    val fechaPubli: LocalDateTime
 )

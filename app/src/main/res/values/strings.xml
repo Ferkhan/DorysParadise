@@ -14,4 +14,5 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descripcion_sugerencias">Aliquam erat volutpat. Vestibulum scelerisque urna ac risus rutrum vehicula. Proin molestie tristique rhoncus. Ut pulvinar ultricies dolor quis dignissim. Praesent fermentum congue convallis. Donec ornare tempus egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce maximus varius purus id bibendum.</string>
 </resources>
