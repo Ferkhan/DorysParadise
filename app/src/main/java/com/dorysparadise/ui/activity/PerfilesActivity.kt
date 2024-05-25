@@ -33,12 +33,12 @@ class PerfilesActivity : AppCompatActivity() {
     }
 
     private fun setValores() {
-        Picasso.get()
-            .load("https://images.dog.ceo/breeds/hound-afghan/n02088094_1023.jpg")
-            .into(binding.imgbtnSol)
-        PicassoUtil().getImg("perfil/perfil.jpg")
+        PicassoUtil().getImg(usuario1.imgRuta)
             .placeholder(R.drawable.usuario)
             .into(binding.imgbtnDory)
+        PicassoUtil().getImg(usuario2.imgRuta)
+            .placeholder(R.drawable.usuario)
+            .into(binding.imgbtnSol)
     }
 
     private fun initRecursos() {
@@ -54,8 +54,8 @@ class PerfilesActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        binding.imgbtnSol.setOnClickListener { irInicioSesion(1) }
-        binding.imgbtnDory.setOnClickListener { irInicioSesion(2) }
+        binding.imgbtnSol.setOnClickListener { irInicioSesion(2) }
+        binding.imgbtnDory.setOnClickListener { irInicioSesion(1) }
     }
 
     private fun irInicioSesion(id: Int) {
