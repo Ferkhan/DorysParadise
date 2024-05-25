@@ -7,10 +7,10 @@ import android.app.Application
 class UtilityApplication : Application() {
     companion object {
         @SuppressLint("StaticFieldLeak")
-        lateinit var shareSharedPrefs: SharedPrefs
+        lateinit var sharedPrefs: SharedPrefs
     }
     override fun onCreate() {
         super.onCreate()
-        shareSharedPrefs = SharedPrefs(applicationContext)
+        sharedPrefs = SharedPrefs(applicationContext)
     }
 }

@@ -8,7 +8,6 @@ import com.dorysparadise.bl.models.Transaccion
 import com.dorysparadise.bl.models.Usuario
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface RetrofitService {
@@ -24,18 +23,18 @@ interface RetrofitService {
 
     @GET("usuario_leer_id.php")
     suspend fun getUsuarioPorId(
-        @Query("id") id: Response<Int>
-    ): Usuario
+        @Query("id") id: Int
+    ): Response<Usuario>
 
     @GET("saldo_leer_id.php")
     suspend fun getSaldoPorId(
         @Query("id") id: Response<Int>
-    ): Saldo
+    ): Response<Saldo>
 
     @GET("transaccion_leer_id.php")
     suspend fun getTransaccionPorId(
         @Query("id") id: Response<Int>
-    ): Transaccion
+    ): Response<Transaccion>
 
 
 }
