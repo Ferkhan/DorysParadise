@@ -20,4 +20,9 @@ class ProductosAdapter(val listaProductos: List<Producto>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: ProductosViewHolder, position: Int) {
         holder.bind(listaProductos[position])
     }
+
+    fun updateData(newItems: List<Producto>) {
+        listaProductos.toMutableList().clear()
+        listaProductos.toMutableList().addAll(newItems)
+        notifyDataSetChanged()     }
 }

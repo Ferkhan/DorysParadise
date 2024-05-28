@@ -28,7 +28,7 @@ interface RetrofitService {
 
     @GET("saldo_leer_id.php")
     suspend fun getSaldoPorId(
-        @Query("id") id: Response<Int>
+        @Query("id") id: Int
     ): Response<Saldo>
 
     @GET("transaccion_leer_id.php")

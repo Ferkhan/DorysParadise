@@ -45,12 +45,13 @@ class InicioSesionActivity : AppCompatActivity() {
     private fun irBarraNavegacion() {
         val miIntent = Intent(this, BarraNavActivity::class.java)
 
-        if (compararClave(binding.edtxtClaveInput.text.toString())) {
-            Toast.makeText(this, "Welcome, ${usuario.nombre}", Toast.LENGTH_SHORT).show()
-            startActivity(miIntent)
-        } else {
-            Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
-        }
+        startActivity(miIntent)
+//        if (compararClave(binding.edtxtClaveInput.text.toString())) {
+//            Toast.makeText(this, "Welcome, ${usuario.nombre}", Toast.LENGTH_SHORT).show()
+//            startActivity(miIntent)
+//        } else {
+//            Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+//        }
 
     }
 
