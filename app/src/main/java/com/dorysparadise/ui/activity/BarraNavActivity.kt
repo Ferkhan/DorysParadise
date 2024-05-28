@@ -10,6 +10,8 @@ import com.dorysparadise.databinding.ActivityBarraNavBinding
 import com.dorysparadise.ui.fragment.ProductosFragment
 import com.dorysparadise.ui.fragment.SaldoFragment
 import com.dorysparadise.ui.fragment.SugerenciasFragment
+import com.dorysparadise.utilities.PicassoUtil
+import com.dorysparadise.utilities.UtilityApplication.Companion.sharedPrefs
 
 class BarraNavActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBarraNavBinding
@@ -25,8 +27,13 @@ class BarraNavActivity : AppCompatActivity() {
 
         initRecursos()
         initListeners()
+        setValores()
 
+    }
 
+    private fun setValores() {
+        PicassoUtil().getImg(sharedPrefs.getUsuario().imgRuta)
+            .into(binding.imgPerfil)
     }
 
     private fun initRecursos() {

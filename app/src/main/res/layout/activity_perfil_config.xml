@@ -21,7 +21,7 @@
         android:id="@+id/edit_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="[INSETAR NOMBRE]"
+        android:hint="[INSERTAR NOMBRE]"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/correo"
@@ -45,46 +45,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correo"
-        app:layout_constraintBottom_toTopOf="@id/clave_antigua" />
-
-    <TextView
-        android:id="@+id/clave_antigua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contraseña"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/edit_clave_antigua"
-        app:layout_constraintTop_toBottomOf="@+id/edit_correo" />
-
-    <EditText
-        android:id="@+id/edit_clave_antigua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="[INSERTAR NUEVA CONTRASEÑA]"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/clave_nueva"
-        app:layout_constraintTop_toBottomOf="@+id/clave_antigua" />
+        app:layout_constraintBottom_toTopOf="@id/clave_nueva" />
 
     <TextView
         android:id="@+id/clave_nueva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correo"
+        android:text="Contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_clave_antigua"
-        app:layout_constraintBottom_toTopOf="@+id/edit_clave_nueva" />
+        app:layout_constraintBottom_toTopOf="@+id/edit_clave_nueva"
+        app:layout_constraintTop_toBottomOf="@+id/edit_correo" />
 
     <EditText
         android:id="@+id/edit_clave_nueva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:hint="[INSERTAR NUEVA CONTRASEÑA]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/clave_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/clave_nueva" />
+
+    <TextView
+        android:id="@+id/clave_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar clave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_clave_nueva"
+        app:layout_constraintBottom_toTopOf="@+id/edit_clave_confirm" />
+
+    <EditText
+        android:id="@+id/edit_clave_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
         android:hint="[CONFIRMAR CONTRASEÑA]"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clave_nueva"
+        app:layout_constraintTop_toBottomOf="@+id/clave_confirm"
         app:layout_constraintBottom_toTopOf="@id/btn_guardar" />
 
     <Button
@@ -95,7 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_cancelar"
-        app:layout_constraintTop_toBottomOf="@+id/edit_clave_nueva" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_clave_confirm" />
 
     <Button
         android:id="@+id/btn_cancelar"
