@@ -5,15 +5,15 @@ import com.dorysparadise.bl.models.Usuario
 
 // Guardar datos en la memoria del dispositivo (Shared Preferences)
 class SharedPrefs(val contexto: Context) {
-    val SHARED_NAME = "BD_local"
-    val SHARED_USUARIO_ID = "usuario_id"
-    val SHARED_USUARIO_NOMBRE = "usuario_nombre"
-    val SHARED_USUARIO_ROL = "usuario_rol"
-    val SHARED_USUARIO_CORREO = "usuario_correo"
-    val SHARED_USUARIO_CLAVE = "usuario_clave"
-    val SHARED_USUARIO_IMG = "usuario_img"
-    val SHARED_USUARIO = "usuario"
-    val almacen = contexto.getSharedPreferences(SHARED_NAME, 0)
+    private val SHARED_NAME = "BD_local"
+    private val SHARED_USUARIO_ID = "usuario_id"
+    private val SHARED_USUARIO_NOMBRE = "usuario_nombre"
+    private val SHARED_USUARIO_ROL = "usuario_rol"
+    private val SHARED_USUARIO_CORREO = "usuario_correo"
+    private val SHARED_USUARIO_CLAVE = "usuario_clave"
+    private val SHARED_USUARIO_IMG = "usuario_img"
+    private val SHARED_USUARIO = "usuario"
+    private val almacen = contexto.getSharedPreferences(SHARED_NAME, 0)
 
     fun setIdUsuario(id: Int) {
         almacen.edit().putInt(SHARED_USUARIO_ID, id).apply()

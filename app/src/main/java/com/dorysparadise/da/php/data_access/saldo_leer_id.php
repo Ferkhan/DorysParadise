@@ -4,7 +4,7 @@ include("../conexion.php");
 
 $usuario_id = $_GET['id'];
 
-$sql = "SELECT s.saldo_id AS id, s.cantidad
+$sql = "SELECT s.usuario_id AS id, s.cantidad
         FROM SALDO s
         JOIN USUARIO u ON s.usuario_id = u.usuario_id
         WHERE s.estado_registro = 1
