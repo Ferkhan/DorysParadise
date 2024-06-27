@@ -63,9 +63,10 @@ class SaldoFragment : Fragment() {
             respuestaRetrofit = withContext(Dispatchers.IO) { RetrofitAdapter.getRetrofit().updateSaldoPorId(saldo.id, saldo.cantidad + cantidad) }
 
             if (respuestaRetrofit.isSuccessful) {
-                actualizarCantidad()
+                cambiarAviso("$${saldo.cantidad + cantidad} dorydólares")
+                saldo.cantidad += cantidad
             } else {
-                toast(respuestaRetrofit.body()!!.mensaje)
+                toast("Error cambiando cantidad")
             }
             autorizador = true
         }
@@ -75,7 +76,6 @@ class SaldoFragment : Fragment() {
         cambiarAviso("Cargando su saldo actual...")
         actualizarCantidad()
         ocultarBotones()
-
     }
 
     private fun cambiarAviso(mensaje: String) {

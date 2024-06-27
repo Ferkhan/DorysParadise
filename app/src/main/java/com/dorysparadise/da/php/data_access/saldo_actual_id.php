@@ -2,8 +2,6 @@
 
 include("../conexion.php");
 
-// $saldo = json_decode(file_get_contents("php://input"));
-
 if (isset($_POST['id']) && isset($_POST['cantidad'])) {
     $id = $_POST['id'];
     $cantidad = $_POST['cantidad'];

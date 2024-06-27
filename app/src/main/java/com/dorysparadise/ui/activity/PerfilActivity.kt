@@ -49,5 +49,6 @@ class PerfilActivity : AppCompatActivity() {
 
     private fun irPerfilConfig() {
         startActivity(Intent(this, PerfilConfigActivity::class.java))
+        finish()
     }
 }

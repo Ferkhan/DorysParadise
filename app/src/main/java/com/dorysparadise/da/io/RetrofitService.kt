@@ -48,5 +48,22 @@ interface RetrofitService {
         @Field("cantidad") cantidad: Int
     ): Response<RespuestaRetrofit>
 
+    @FormUrlEncoded
+    @POST("usuario_actual_id.php")
+    suspend fun updateUsuarioPorId(
+        @Field("id") id: Int,
+        @Field("nombre") nombre: String,
+        @Field("correo") correo: String,
+        @Field("clave") clave: String
+    ): Response<RespuestaRetrofit>
+
+    @FormUrlEncoded
+    @POST("usuario_actual_id.php")
+    suspend fun updateUsuarioPorId2 (
+        @Field("id") id: Int,
+        @Field("nombre") nombre: String,
+        @Field("correo") correo: String,
+        @Field("clave") clave: String
+    ): Response<RespuestaRetrofit>
 
 }

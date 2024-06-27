@@ -1,17 +1,29 @@
 package com.dorysparadise.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.dorysparadise.bl.models.RespuestaRetrofit
 import com.dorysparadise.bl.models.Usuario
+import com.dorysparadise.da.io.RetrofitAdapter
+import com.dorysparadise.da.io.RetrofitService
 import com.dorysparadise.databinding.ActivityPerfilConfigBinding
 import com.dorysparadise.utilities.UtilityApplication.Companion.sharedPrefs
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Response
 import java.math.BigInteger
 import java.security.MessageDigest
+import kotlin.coroutines.cancellation.CancellationException
 
 class PerfilConfigActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPerfilConfigBinding
     private lateinit var usuario: Usuario
+    private lateinit var respuestaRetrofit: Response<RespuestaRetrofit>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +44,15 @@ class PerfilConfigActivity : AppCompatActivity() {
         binding.editCorreo.setText(usuario.correo)
     }
 
-
     private fun initListeners() {
         binding.btnCancelar.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
-        binding.btnGuardar.setOnClickListener { actualizarDatos() }
+        binding.btnGuardar.setOnClickListener {
+            toast("Opción no disponible por el momento")
+//            actualizarDatos()
+        }
     }
 
-    private fun compararClave() : Boolean {
+    private fun compararClave(): Boolean {
         return binding.editClaveNueva.text.toString() == binding.editClaveConfirm.text.toString()
     }
 
@@ -52,34 +66,83 @@ class PerfilConfigActivity : AppCompatActivity() {
     }
 
     private fun actualizarDatos() {
+        if (!comprobarCampos()) return
 
+        val claveNueva: String = if (binding.editClaveNueva.text.isEmpty())
+            sharedPrefs.getUsuario().clave
+        else
+            getMD5(binding.editClaveNueva.text.toString())
+
+        val id = usuario.id
+        val rol = usuario.rol
+        val nombre = binding.editNombre.text.toString()
+        val correo = binding.editCorreo.text.toString()
+        val img = usuario.imgRuta
+
+        lifecycleScope.launch(Dispatchers.Main) {
+            try {
+                Log.d("DorysCancel", "entra al lifescope")
+                respuestaRetrofit = withContext(Dispatchers.IO) {
+                    RetrofitAdapter.getRetrofit().updateUsuarioPorId(
+                        id,
+                        nombre,
+                        correo,
+                        claveNueva
+                    )
+                }
+                Log.d("DorysCancel", "entre with y el if")
+                if (respuestaRetrofit.isSuccessful) {
+                    toast(respuestaRetrofit.body()!!.mensaje)
+                    sharedPrefs.setUsuario(
+                        Usuario(
+                            id,
+                            rol,
+                            nombre,
+                            correo,
+                            claveNueva,
+                            img
+                        )
+                    )
+                    Log.d("DorysCancel", "luego del share")
+                } else {
+                    toast("Error en la actualización de datos. Intente más tarde")
+                }
+            } catch (e: Exception) {
+                Log.d("DorysCancel", e.toString())
+            }
+        }
+
+//         onBackPressedDispatcher.onBackPressed()
+    }
+
+    private fun comprobarCampos(): Boolean {
         if (binding.editNombre.text.toString().trim().isEmpty()) {
             toast("Campo nombre está vacío")
-            return
+            return false
         }
 
         if (binding.editCorreo.text.toString().trim().isEmpty()) {
             toast("Campo correo está vacío")
-            return
+            return false
         }
 
-        if (binding.editClaveNueva.text.toString().trim().isEmpty()) {
-            toast("Campo contraseña está vacío")
-            return
-        }
+        if (binding.editClaveNueva.text.isNotEmpty() || binding.editClaveConfirm.text.isNotEmpty()) {
+            if (binding.editClaveNueva.text.toString().trim().isEmpty()) {
+                toast("Campo contraseña está vacío")
+                return false
+            }
 
-        if (binding.editClaveConfirm.text.toString().trim().isEmpty()) {
-            toast("Campo confirmar contraseña está vacío")
-            return
+            if (binding.editClaveConfirm.text.toString().trim().isEmpty()) {
+                toast("Campo confirmar contraseña está vacío")
+                return false
+            }
         }
 
         if (!compararClave()) {
             toast("Las contraseñas no coinciden")
-            return
+            return false
         }
 
-        val claveNueva = getMD5(binding.editClaveNueva.text.toString())
-        toast("Cambios guardados con éxito: $claveNueva")
-        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 }
